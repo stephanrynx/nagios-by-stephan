@@ -4,7 +4,7 @@ Este proyecto fue realizado en una instancia de laboratorio EC2  de AWS, el sist
 
 ### Paso 1: Las bases antes de iniciar con este proyecto.
 
-Para iniciar este proyecto necesitamos actualizar nuestro sistema operativo:
+1.- Para iniciar este proyecto necesitamos actualizar nuestro sistema operativo:
 
 ```
 sudo apt update
@@ -12,7 +12,7 @@ sudo apt upgrade -y
 sudo apt autoremove -y
 ```
 
-Tambien debemos de instalar los paquetes necesarios para isntalar Docker:
+2.- Tambien debemos de instalar los paquetes necesarios para isntalar Docker:
 
 ```
 sudo apt install -y apt-transport-https ca-certificates curl software-properties-common
@@ -37,4 +37,36 @@ echo \
   "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 ```
+3.- Actualizar el índice de paquetes APT y instalar Docker Engine y Docker Compose:
+```
+sudo apt update
+sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+``` 
+4.- Verificar la instalación de Docker:
+
+```
+sudo docker run hello-world
+```
+Deberías ver un mensaje que indica que la instalación fue exitosa.
+
+5.- Añadir tu usuario al grupo docker (opcional pero recomendado):
+Esto te permite ejecutar comandos docker sin sudo. Cierra y vuelve a abrir tu sesión de terminal para que los cambios surtan efecto.
+```
+sudo usermod -aG docker ${USER}
+# Cierra la terminal y vuelve a abrirla, o ejecuta 'newgrp docker'
+```
+
+### Paso 3: Creación del Directorio del Proyecto y Archivos.
+
+Vamos a crear la estructura de tu proyecto Docker para Nagios.
+
+1.-Crear el directorio del proyecto:
+```
+mkdir ~/nagios-proyecto
+cd ~/nagios-proyecto
+```
+Puedes cambiar el '~' por la ruta donde vas a trabajar en tu proycto.
+
+
+
 

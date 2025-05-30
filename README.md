@@ -16,7 +16,7 @@ Se recomienda encarecidamente actualizar el sistema anfitrión antes de instalar
 
 1.  **Actualizar el sistema:**
 
-    ```bash
+    ```
     sudo apt update
     sudo apt upgrade -y
     sudo apt autoremove -y
@@ -25,7 +25,7 @@ Se recomienda encarecidamente actualizar el sistema anfitrión antes de instalar
 2.  **Instalar paquetes necesarios para Docker:**
     Estos paquetes son fundamentales para permitir que el sistema descargue e instale Docker desde su repositorio oficial.
 
-    ```bash
+    ```
     sudo apt install -y apt-transport-https ca-certificates curl software-properties-common
     ```
 
@@ -36,7 +36,7 @@ Se procede con la instalación de la última versión de Docker Engine y Docker 
 1.  **Añadir la clave GPG oficial de Docker:**
     Esta clave se utiliza para verificar la autenticidad de los paquetes de Docker, garantizando que provienen de una fuente legítima.
 
-    ```bash
+    ```
     sudo install -m 0755 -d /etc/apt/keyrings
     curl -fsSL [https://download.docker.com/linux/ubuntu/gpg](https://download.docker.com/linux/ubuntu/gpg) | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
     sudo chmod a+r /etc/apt/keyrings/docker.gpg
@@ -45,7 +45,7 @@ Se procede con la instalación de la última versión de Docker Engine y Docker 
 2.  **Añadir el repositorio de Docker a APT sources:**
     Se añade la línea del repositorio de Docker al archivo de fuentes de APT, lo que permite al gestor de paquetes encontrar e instalar Docker.
 
-    ```bash
+    ```
     echo \
       "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] [https://download.docker.com/linux/ubuntu](https://download.docker.com/linux/ubuntu) \
       "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
@@ -55,7 +55,7 @@ Se procede con la instalación de la última versión de Docker Engine y Docker 
 3.  **Actualizar el índice de paquetes APT e instalar Docker Engine y Docker Compose:**
     Finalmente, se actualiza la lista de paquetes y se instalan los componentes principales de Docker.
 
-    ```bash
+    ```
     sudo apt update
     sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
     ```
@@ -63,7 +63,7 @@ Se procede con la instalación de la última versión de Docker Engine y Docker 
 4.  **Verificar la instalación de Docker:**
     Se ejecuta un pequeño contenedor de prueba para confirmar que Docker se ha instalado correctamente y puede ejecutar imágenes.
 
-    ```bash
+    ```
     sudo docker run hello-world
     ```
     Se espera un mensaje que confirme la instalación exitosa de Docker.
@@ -71,7 +71,7 @@ Se procede con la instalación de la última versión de Docker Engine y Docker 
 5.  **Añadir el usuario actual al grupo `docker` (opcional pero recomendado):**
     Esta configuración permite al usuario ejecutar comandos `docker` sin necesidad de anteponer `sudo`. El usuario debe cerrar y volver a abrir su sesión de terminal, o ejecutar `newgrp docker`, para que los cambios surtan efecto.
 
-    ```bash
+    ```
     sudo usermod -aG docker ${USER}
     ```
 
@@ -81,7 +81,7 @@ El usuario debe crear el directorio del proyecto y los archivos esenciales (`Doc
 
 1.  **Crear el directorio del proyecto:**
 
-    ```bash
+    ```
     mkdir ~/nagios-proyecto
     cd ~/nagios-proyecto
     ```
@@ -89,7 +89,7 @@ El usuario debe crear el directorio del proyecto y los archivos esenciales (`Doc
 2.  **Crear el archivo `Dockerfile`:**
     El usuario debe crear el archivo `Dockerfile` dentro del directorio `~/nagios-proyecto` y pegar el siguiente contenido.
 
-    ```dockerfile
+    ```e
     # Dockerfile para Nagios Core en Ubuntu 24.04
 
     # Paso 1: Se elige la imagen base de Ubuntu 24.04.
@@ -213,7 +213,7 @@ El usuario debe crear el directorio del proyecto y los archivos esenciales (`Doc
 3.  **Crear el archivo `start_nagios.sh`:**
     El usuario debe crear el archivo `start_nagios.sh` en el mismo directorio `~/nagios-proyecto` y pegar el siguiente contenido.
 
-    ```bash
+    ```
     #!/bin/bash
 
     # Se inicia Apache en primer plano (-D FOREGROUND) para que Docker lo considere el proceso principal
@@ -235,7 +235,7 @@ El usuario debe crear el directorio del proyecto y los archivos esenciales (`Doc
 
 Desde el directorio `~/nagios-proyecto` en la terminal, el usuario procede a construir la imagen Docker.
 
-```bash
+```
 docker build -t dy-ca-nagios-ubuntu:v1.0 .
 
 ```

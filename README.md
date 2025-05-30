@@ -273,11 +273,17 @@ Para acceder a la interfaz web de Nagios, sigue los siguientes pasos:
 
 2.- Ingresa la URL de Nagios:
 
-    - Si estás en la misma máquina donde ejecutaste Docker:
-`http://localhost:8080/nagio`
-    - Si estás en una instancia de EC2 o VM remota: Necesitarás la IP pública de la instancia. Es fundamental que el grupo de seguridad (EC2) o el firewall (VM) permitan el tráfico TCP entrante en el puerto 8080.
+Si estás en la misma máquina donde ejecutaste Docker
 
-`http://[TU_IP_PUBLICA_DE_EC2]:8080/nagios`
+```
+http://localhost:8080/nagio
+```
+
+Si estás en una instancia de EC2 o VM remota: Necesitarás la IP pública de la instancia. Es fundamental que el grupo de seguridad (EC2) o el firewall (VM) permitan el tráfico TCP entrante en el puerto 8080.
+
+```
+http://[TU_IP_PUBLICA_DE_EC2]:8080/nagios
+```
 
 3.- Iniciar Sesión:
 

@@ -296,7 +296,7 @@ Contraseña:`dylan`
 Se espera que la interfaz de Nagios Core sea visible y completamente funcional.
 
 
-#Despedida del proyecto.
+# Despedida del proyecto.
 
 ¡Gracias por visitar este repositorio!
 

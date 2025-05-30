@@ -237,3 +237,53 @@ Desde el directorio `~/nagios-proyecto` en la terminal, el usuario procede a con
 
 ```bash
 docker build -t dy-ca-nagios-ubuntu:v1.0 .
+
+```
+
+## 5. Ejecutar el Contenedor Docker
+Una vez que la imagen de Docker se haya construido con éxito, puedes ejecutarla.
+
+### Ejecutar el Contenedor
+
+Para iniciar un contenedor a partir de la imagen construida, usa el siguiente comando:
+
+```
+docker run -d -p 8080:80 dy-ca-nagios-ubuntu:v1.0
+```
+`docker run`: Comando para iniciar un contenedor a partir de una imagen.
+`-d`: Ejecuta el contenedor en modo "detached" (segundo plano), liberando tu terminal.
+`-p 8080:80`: Mapea el puerto 8080 de la máquina anfitriona al puerto 80 del contenedor. Esto permite acceder a Nagios a través del puerto 8080 desde un navegador externo.
+`dy-ca-nagios-ubuntu:v1.0`: Nombre y etiqueta de la imagen que se construyó.
+
+
+### Verificar que el Contenedor se Esté Ejecutando
+Puedes verificar el estado de los contenedores Docker en ejecución con:
+
+```
+docker ps
+```
+
+Se espera que el contenedor esté listado, mostrando los puertos mapeados (por ejemplo, 0.0.0.0:8080->80/tcp).
+
+
+## 6. Acceder a la Interfaz Web de Nagios
+Para acceder a la interfaz web de Nagios, sigue los siguientes pasos:
+
+1.- Abre un navegador web.
+
+2.- Ingresa la URL de Nagios:
+
+    - Si estás en la misma máquina donde ejecutaste Docker:
+`http://localhost:8080/nagio`
+    - Si estás en una instancia de EC2 o VM remota: Necesitarás la IP pública de la instancia. Es fundamental que el grupo de seguridad (EC2) o el firewall (VM) permitan el tráfico TCP entrante en el puerto 8080.
+
+`http://[TU_IP_PUBLICA_DE_EC2]:8080/nagios`
+
+3.- Iniciar Sesión:
+
+Cuando se solicite, ingresa las credenciales configuradas en el Dockerfile (Paso 7 del Dockerfile):
+
+Usuario: `dylan`
+Contraseña:`dylan`
+
+Se espera que la interfaz de Nagios Core sea visible y completamente funcional.

@@ -290,6 +290,18 @@ http://[TU_IP_PUBLICA_DE_EC2]:8080/nagios
 Cuando se solicite, ingresa las credenciales configuradas en el Dockerfile (Paso 7 del Dockerfile):
 
 Usuario: `dylan`
+
 Contraseña:`dylan`
 
 Se espera que la interfaz de Nagios Core sea visible y completamente funcional.
+
+
+#Despedida del proyecto.
+
+¡Gracias por visitar este repositorio!
+
+Espero que la documentación y el código aquí te sean de gran utilidad para entender y replicar la implementación de Nagios con Docker. Este proyecto ha sido un camino de aprendizaje y una excelente forma de documentar el proceso de creación y despliegue de Nagios Core en un entorno contenedorizado.
+
+Si tienes alguna pregunta, sugerencia o encuentras algún problema, no dudes en abrir un issue. ¡Toda contribución y feedback son bienvenidos!
+
+¡Te invito a explorar, probar y adaptar este proyecto a tus propias necesidades!
